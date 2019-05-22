@@ -1,4 +1,4 @@
-# docker\_dir
+# docker_dir
 docker集成的Nginx-Mysql-PHP开发环境
 目录结构
 	/root
@@ -14,34 +14,34 @@ docker集成的Nginx-Mysql-PHP开发环境
 直接官网下载桌面版，配合里面的Kitematic可视化管理容器
 
 # 克隆git仓库，把配置目录拷贝下载
-`https://github.com/LyndonXiao/docker\_dir.git`
+`https://github.com/LyndonXiao/docker_dir.git`
 
 # 部署Mysql容器
 1. 拉取镜像
 	`docker pull mysql:5.7`
 2. 运行容器
-	docker run \\
-	  -d \\
-	  -p 3306:3306 \\
-	  -e MYSQL\_ROOT\_PASSWORD=12345678910 \\
-	  --name m\_mysql mysql:5.7
+		docker run \
+		  -d \
+		  -p 3306:3306 \
+		  -e MYSQL_ROOT_PASSWORD=12345678910 \
+		  --name m_mysql mysql:5.7
 
 > 参数说明
 > -d 让容器在后台运行
 > -p 添加主机到容器的端口映射，前面是映射到本地的端口，后面是需要映射的端口
-> -e 设置环境变量，MYSQL\_ROOT\_PASSWORD这里是设置mysql的root用户的初始密码
+> -e 设置环境变量，MYSQL_ROOT_PASSWORD这里是设置mysql的root用户的初始密码
 > —name 容器的名字，随便取，但是必须唯一
 
 # 部署PHP
 1. 拉取镜像
 	`docker pull bitnami/php-fpm:7.2`
 2. 运行容器
-	docker run \\
-	  -d \\
-	  -p 9000:9000 \\
-	  -v /data/wwwroot:/usr/share/nginx/html \\
-	  --link m\_mysql:mysql \\
-	  --name m\_phpfpm bitnami/php-fpm:7.2
+		docker run \
+		  -d \
+		  -p 9000:9000 \
+		  -v /data/wwwroot:/usr/share/nginx/html \
+		  --link m_mysql:mysql \
+		  --name m_phpfpm bitnami/php-fpm:7.2
 
 > 参数说明
 > -d 让容器在后台运行
@@ -65,8 +65,8 @@ docker集成的Nginx-Mysql-PHP开发环境
 	  -v /data/nginx/nginx.conf:/etc/nginx/nginx.conf:ro \\
 	  -v /data/nginx/conf:/etc/nginx/conf.d \\
 	  -v /data/wwwlogs:/var/log/nginx \\
-	  --link m\_phpfpm:phpfpm \\
-	  --name m\_nginx nginx:latest
+	  --link m_phpfpm:phpfpm \\
+	  --name m_nginx nginx:latest
 
 > 参数说明：
 > -d 让容器在后台运行
