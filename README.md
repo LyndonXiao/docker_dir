@@ -27,11 +27,13 @@ docker集成的Nginx-Mysql-PHP开发环境
 docker run \  
     -d \  
     -p 3306:3306 \  
+    -v /data/mysql:/home/mysqldump \ 
     -e MYSQLROOTPASSWORD=12345678910 \  
     --name mmysql mysql:5.7
 ```
 > 参数说明  
 > -d 让容器在后台运行  
+> -v 映射一个本地的目录到容器中，方便进行数据导入导出
 > -p 添加主机到容器的端口映射，前面是映射到本地的端口，后面是需要映射的端口  
 > -e 设置环境变量，MYSQL_ROOT_PASSWORD这里是设置mysql的root用户的初始密码  
 > —name 容器的名字，随便取，但是必须唯一
