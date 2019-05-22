@@ -2,14 +2,16 @@
 docker集成的Nginx-Mysql-PHP开发环境
 目录结构
 
-` /root
-``	 /mysql  存放数据库备份
-``	 /nginx  nginx配置文件
-``		 /conf
-``	 /wwwroot  网站根目录
-``	 /wwwlogs  日志
-``	 /source  程序源代码
-``	 /download 下载目录
+```
+`/root
+ /mysql  存放数据库备份
+ /nginx  nginx配置文件
+ /conf
+ /wwwroot  网站根目录
+ /wwwlogs  日志
+ /source  程序源代码
+ /download 下载目录
+```
 `
 # 安装docker
 直接官网下载桌面版，配合里面的Kitematic可视化管理容器
